@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منوی یومیتو</title>
+    <link rel="stylesheet" href="../css/tailwind-persian.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <img src="../images/logo.jpg" alt="مجموعه گردشگری حرا" loading="lazy">
+        <h1>مجموعه گردشگری حرا</h1>
+    </header>
+
+    <div class="menu" id="menuContainer"></div>
+
+    <footer>
+        <p>تمام حقوق محفوظ است &copy; 2025 مجموعه گردشگری حرا</p>
+    </footer>
+
+    <script>
+        // Data-driven menu structure with sub-items
+        const menuItems = [
+            {
+                id: 1,
+                title: "بار گرم",
+                subtitle: "نوشیدنی‌های داغ",
+                description: "نوشیدنی‌های گرم و دلپذیر برای روزهای سرد",
+                link: "ramen.html",
+                icon: "fa-mug-hot",
+                category: "hot-drinks",
+                subItems: ["قهوه اسپرسو",  "چای ایرانی", "دمنوش"]
+            },
+            {
+                id: 2,
+                title: "بار سرد",
+                subtitle: "نوشیدنی‌های یخی",
+                description: "آب‌میوه، نوشیدنی و مشروبات سرد",
+                link: "bar-sard.html",
+                icon: "fa-snowflake",
+                category: "cold-drinks",
+                subItems: [ "نوشیدنی یخی"]
+            },
+            {
+                id: 3,
+                title: "شیک‌ها",
+                subtitle: "مخلوط‌های جذاب",
+                description: "شیک میوه، شیک شکلات ",
+                link: "shakes.html",
+                icon: "fa-blender",
+                category: "shakes",
+                subItems: ["شیک توت‌فرنگی", "شیک شکلات", ]
+            },
+            {
+                id: 4,
+                title: "ماکتل‌ها",
+                subtitle: "کوکتل‌های میوه ای",
+                description: "آب‌میوه، تزئینات گیاهی",
+                link: "mocktails.html",
+                icon: "fa-glass-cheers",
+                category: "mocktails",
+                subItems: ["مخلوط میوه‌ای", "کوکتل گرمسیری"]
+            },
+            {
+                id: 5,
+                title: "بستنی‌ها",
+                subtitle: "دسر‌های سرد",
+                description: "بستنی انواع مختلف   ",
+                link: "bastani.html",
+                icon: "fa-ice-cream",
+                category: "ice-cream",
+                subItems: ["بستنی وانیل", "بستنی شکلات",]
+            },
+            {
+                id: 6,
+                title: "قلیان‌ها",
+                subtitle: "طعم‌های گوناگون",
+                description: "قلیان با نکات طعمی متنوع",
+                link: "ghalban.html",
+                icon: "fa-fire-alt",
+                category: "hookah",
+                subItems: ["نعناع", "میوه‌ای", ]
+            },
+            {
+                id: 7,
+                title: "پیش‌غذا‌ها",
+                subtitle: "غذای سبک",
+                description: "پیش‌غذاهای خوشمزه و متنوع",
+                link: "pish-ghaza.html",
+                icon: "fa-drumstick-bite",
+                category: "appetizers",
+                subItems: [, "سیب زمینی"]
+            },
+            {
+                id: 8,
+                title: "شام‌ها",
+                subtitle: "غذاهای اصلی",
+                description: "غذاهای لذیذ",
+                link: "dinner.html",
+                icon: "fa-utensils",
+                category: "dinner",
+                subItems: [" کولی", " ساندویچ ایتالیایی", " اسنک "]
+            }
+        ];
+
+        // Render menu items
+        const menuContainer = document.getElementById('menuContainer');
+        
+        menuItems.forEach((item, index) => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.setAttribute('data-category', item.category);
+            menuItem.setAttribute('data-id', item.id);
+            
+            // Generate sub-items HTML
+            const subItemsHTML = item.subItems
+                .map(subItem => `<span class="sub-item">${subItem}</span>`)
+                .join('');
+            
+            menuItem.innerHTML = `
+                <a href="${item.link}">
+                    <i class="fas ${item.icon} icon"></i>
+                    <div class="menu-item-content">
+                        <h3>${item.title}</h3>
+                        <p class="subtitle">${item.subtitle}</p>
+                        <div class="sub-items">
+                            ${subItemsHTML}
+                        </div>
+                        <p class="description">${item.description}</p>
+                    </div>
+                </a>
+            `;
+            
+            menuContainer.appendChild(menuItem);
+        });
+    </script>
+</body>
+
+</html>

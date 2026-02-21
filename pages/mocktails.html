@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماکتل‌ها</title>
+    <link rel="stylesheet" href="../css/tailwind-persian.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="menu.html" class="back-button">← بازگشت</a>
+        <h1>ماکتل‌ها</h1>
+    </header>
+
+    <div class="menu" id="menuContainer"></div>
+
+    <footer>
+        <p>تمام حقوق محفوظ است &copy; 2026 مجموعه گردشگری حرا</p>
+    </footer>
+
+    <script>
+        // Data-driven menu structure for Mocktails
+        const menuItems = [
+            {
+                id: 1,
+                name: "بلوکاراسائو",
+                description: "شراب بدون الکل، آب، شیرین و تازه",
+                price: "200",
+                image: "../images/bl.jpg"
+            },
+            {
+                id: 2,
+                name: "رد موهیتو",
+                description: "آب، بری سرخ، نعناع، قند",
+                price: "160",
+                image: "../images/rd.jpg"
+            },
+            {
+                id: 3,
+                name: "موهیتو",
+                description: "آب، نعناع، لیمو، شکر، منعش‌کننده",
+                price: "160",
+                image: "../images/md.jpg"
+            }
+        ];
+
+        // Render menu items
+        const menuContainer = document.getElementById('menuContainer');
+        
+        // Format price with thousand separator
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        menuItems.forEach((item) => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.setAttribute('data-id', item.id);
+            
+            menuItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+                <div class="menu-item-content">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <p class="price"><strong>${formatPrice(item.price)}</strong> هزار تومان</p>
+                </div>
+            `;
+            
+            menuContainer.appendChild(menuItem);
+        });
+    </script>
+</body>
+
+</html>
+
+
+

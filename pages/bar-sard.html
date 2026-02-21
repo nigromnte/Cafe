@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بار سرد</title>
+    <link rel="stylesheet" href="../css/tailwind-persian.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="menu.html" class="back-button">← بازگشت</a>
+        <h1>بار سرد</h1>
+    </header>
+
+    <div class="menu" id="menuContainer"></div>
+
+    <footer>
+        <p>تمام حقوق محفوظ است &copy; 2025 مجموعه گردشگری حرا</p>
+    </footer>
+
+    <script>
+        // Data-driven menu structure for Cold Drinks
+        const menuItems = [
+            {
+                id: 1,
+                name: "آفاگاتو",
+                description: "بستنی، اسپرسو، بسیار خوشمزه",
+                price: "170",
+                image: "../images/af.jpg"
+            },
+            {
+                id: 2,
+                name: "آیس لته",
+                description: "آب، شیر، اسپرسو، خنک و دلپذیر",
+                price: "160",
+                image: "../images/al.jpg"
+            },
+            {
+                id: 3,
+                name: "آیس کارامل",
+                description: "کارامل، آب، شیر، اسپرسو",
+                price: "160",
+                image: "../images/AK.jpg"
+            },
+            {
+                id: 4,
+                name: "آیس موکا",
+                description: "آب، شیر، قهوه، شکلات",
+                price: "160",
+                image: "../images/mok.jpg"
+            },
+            {
+                id: 5,
+                name: "آیس آمریکانو",
+                description: "آب سرد، اسپرسو، ساده و تازه",
+                price: "160",
+                image: "../images/ice.jpg"
+            },
+            {
+                id: 6,
+                name: "شیرموز",
+                description: "شیر، بستنی، موز تازه",
+                price: "170",
+                image: "../images/moz.jpg"
+            },
+            {
+                id: 7,
+                name: "آب طالبی",
+                description: "آب سرد، طالبی، قند، نعناع",
+                price: "150",
+                image: "../images/tal.jpg"
+            },
+            {
+                id: 8,
+                name: "آب هندوانه",
+                description: "آب هندوانه تازه، یخ، نعناع",
+                price: "150",
+                image: "../images/hen.jpg"
+            }
+        ];
+
+        // Render menu items
+        const menuContainer = document.getElementById('menuContainer');
+        
+        // Format price with thousand separator
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        menuItems.forEach((item) => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.setAttribute('data-id', item.id);
+            
+            menuItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+                <div class="menu-item-content">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <p class="price"><strong>${formatPrice(item.price)}</strong> هزار تومان</p>
+                </div>
+            `;
+            
+            menuContainer.appendChild(menuItem);
+        });
+    </script>
+</body>
+
+</html>

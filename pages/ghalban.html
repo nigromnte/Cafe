@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قلیان‌ها</title>
+    <link rel="stylesheet" href="../css/tailwind-persian.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="menu.html" class="back-button">← بازگشت</a>
+        <h1>قلیان‌ها</h1>
+    </header>
+
+    <div class="menu" id="menuContainer"></div>
+
+    <footer>
+        <p>تمام حقوق محفوظ است &copy; 2025 مجموعه گردشگری حرا</p>
+    </footer>
+
+    <script>
+        // Data-driven menu structure for Hookah
+        const menuItems = [
+            {
+                id: 1,
+                name: "نعناع",
+                description: "طعم نعناع تازه و خنک‌کننده",
+                price: "300",
+                image: "../images/qh.jpg",
+                badge: "محبوب"
+            },
+            {
+                id: 2,
+                name: "آدامس",
+                description: "طعم آدامس شیرین و دلپذیر",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 3,
+                name: "لیمو",
+                description: "طعم لیمو ترش و تازه",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 4,
+                name: "توت‌فرنگی",
+                description: "طعم توت‌فرنگی شیرین",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 5,
+                name: "نعناع یخی",
+                description: "نعناع با لمس سرد و تازگی",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 6,
+                name: "آدامس کوهی",
+                description: "آدامس با نت کوهی و طبیعی",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 7,
+                name: "انیه",
+                description: "طعم انیه معطر و خوشبو",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 8,
+                name: "مسکو موول",
+                description: "مخلوط تازه و انرژی‌بخش",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 9,
+                name: "الو",
+                description: "طعم الو شیرین و خاص",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 10,
+                name: "شراب یخی",
+                description: "طعم شراب یخی و بی‌الکل",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 11,
+                name: "دو سیب",
+                description: "ترکیب دو نوع سیب",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 12,
+                name: "دو سیب آلبالو",
+                description: "سیب و آلبالو در هم",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 13,
+                name: "آدامس دارچین",
+                description: "آدامس با نت دارچین گرم",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 14,
+                name: "برازجانی",
+                description: "طعم برازجانی معطر",
+                price: "300",
+                image: "../images/qh.jpg"
+            },
+            {
+                id: 15,
+                name: "لنگه‌ای",
+                description: "طعم ترکیبی لنگه‌ای",
+                price: "300",
+                image: "../images/qh.jpg",
+                badge: "جدید"
+            }
+        ];
+
+        // Render menu items
+        const menuContainer = document.getElementById('menuContainer');
+        
+        // Format price with thousand separator
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        menuItems.forEach((item) => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.setAttribute('data-id', item.id);
+            
+            const badgeHTML = item.badge ? `<span class="badge">${item.badge}</span>` : '';
+            
+            menuItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+                <div class="menu-item-content">
+                    <div class="item-header">
+                        <h3>${item.name}</h3>
+                        ${badgeHTML}
+                    </div>
+                    <p>${item.description}</p>
+                    <p class="price"><strong>${formatPrice(item.price)}</strong> هزار تومان</p>
+                </div>
+            `;
+            
+            menuContainer.appendChild(menuItem);
+        });
+    </script>
+</body>
+
+</html>

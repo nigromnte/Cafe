@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شیک‌ها</title>
+    <link rel="stylesheet" href="../css/tailwind-persian.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="menu.html" class="back-button">← بازگشت</a>
+        <h1>شیک‌ها</h1>
+    </header>
+
+    <div class="menu" id="menuContainer"></div>
+
+    <footer>
+        <p>تمام حقوق محفوظ است &copy; 2025 مجموعه گردشگری حرا</p>
+    </footer>
+
+    <script>
+        // Data-driven menu structure for Shakes
+        const menuItems = [
+            {
+                id: 1,
+                name: "شکلاتی",
+                description: "شیک شکلات خالص با بستنی و شیر",
+                price: "280",
+                image: "../images/cha.jpg"
+            },
+            {
+                id: 2,
+                name: "تریپل چاکلت",
+                description: "شیک شکلات سه‌لایه با طعم عمیق",
+                price: "280",
+                image: "../images/trc.jpg"
+            },
+            {
+                id: 3,
+                name: "کارامل",
+                description: "شیک کارامل شیرین و لذیذ",
+                price: "280",
+                image: "../images/cr.jpg"
+            },
+            {
+                id: 4,
+                name: "توت فرنگی",
+                description: "بستنی توت فرنگی، شیر و توت طبیعی",
+                price: "280",
+                image: "../images/st.jpg"
+            },
+            {
+                id: 5,
+                name: "شاه توت",
+                description: "بستنی شاه توت با شیر و بری‌های تازه",
+                price: "280",
+                image: "../images/shsh.jpg"
+            }
+        ];
+
+        // Render menu items
+        const menuContainer = document.getElementById('menuContainer');
+        
+        // Format price with thousand separator
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        menuItems.forEach((item) => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.setAttribute('data-id', item.id);
+            
+            menuItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+                <div class="menu-item-content">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <p class="price"><strong>${formatPrice(item.price)}</strong> هزار تومان</p>
+                </div>
+            `;
+            
+            menuContainer.appendChild(menuItem);
+        });
+    </script>
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بار گرم</title>
+    <link rel="stylesheet" href="../css/tailwind-persian.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="menu.html" class="back-button">← بازگشت</a>
+        <h1>بار گرم</h1>
+    </header>
+
+    <div class="menu" id="menuContainer"></div>
+
+    <footer>
+        <p>تمام حقوق محفوظ است &copy; 2025 مجموعه گردشگری حرا</p>
+    </footer>
+
+    <script>
+        // Data-driven menu structure for Hot Drinks
+        const menuItems = [
+            {
+                id: 1,
+                name: "چای ساده",
+                description: "آب، چای خشک، نباط، قند یا شکر",
+                price: "80",
+                image: "../images/ch3.jpg"
+            },
+            {
+                id: 2,
+                name: "چای دارچین",
+                description: "آب، چای دارچین، نباط، قند یا شکر",
+                price: "100",
+                image: "../images/chd.jpeg"
+            },
+            {
+                id: 3,
+                name: "چای ترش",
+                description: "آب، چای ترش، نباط، قند یا شکر",
+                price: "100",
+                image: "../images/cht.jpg"
+            },
+            {
+                id: 4,
+                name: "چای سبز",
+                description: "آب، چای سبز، نباط، قند یا شکر",
+                price: "80",
+                image: "../images/chs.jpg"
+            },
+            {
+                id: 5,
+                name: "چای کرک",
+                description: "آب، چای کرک، نباط، قند یا شکر",
+                price: "100",
+                image: "../images/chkk.jpg"
+            },
+            {
+                id: 6,
+                name: "چای ماسالا",
+                description: "آب، چای ماسالا، نباط، قند یا شکر",
+                price: "100",
+                image: "../images/chm.jpg"
+            },
+            {
+                id: 7,
+                name: "دمنوش به لیمو",
+                description: "آب، چای لیمو، نباط، قند یا شکر",
+                price: "100",
+                image: "../images/db.jpg"
+            },
+            {
+                id: 8,
+                name: "دمنوش گل گاو زبان",
+                description: "آب، چای گل گاو زبان، نباط، قند یا شکر",
+                price: "80",
+                image: "../images/dg.jpeg"
+            },
+            {
+                id: 9,
+                name: "دمنوش بابونه",
+                description: "آب، چای بابونه، نباط، قند یا شکر",
+                price: "80",
+                image: "../images/dbb.jpg"
+            },
+            {
+                id: 10,
+                name: "اسپرسو",
+                description: "آب، قهوه، شکلات، قند یا شکر",
+                price: "100",
+                image: "../images/spp.jpg"
+            },
+            {
+                id: 11,
+                name: "لته",
+                description: "آب، قهوه، شیر، شکر",
+                price: "130",
+                image: "../images/lt.jpg"
+            },
+            {
+                id: 12,
+                name: "هات چاکلت",
+                description: "آب، شیر، شکلات، قند یا شکر",
+                price: "150",
+                image: "../images/ht.jpg"
+            },
+            {
+                id: 13,
+                name: "موکا",
+                description: "آب، قهوه، شیر، شکلات",
+                price: "150",
+                image: "../images/mk.jpg"
+            },
+            {
+                id: 14,
+                name: "کاپوچینو",
+                description: "آب، قهوه، شیر، کف شیر",
+                price: "130",
+                image: "../images/kc.jpg"
+            }
+        ];
+
+        // Render menu items
+        const menuContainer = document.getElementById('menuContainer');
+        
+        // Format price with thousand separator
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        menuItems.forEach((item) => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.setAttribute('data-id', item.id);
+            
+            menuItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+                <div class="menu-item-content">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <p class="price"><strong>${formatPrice(item.price)}</strong> هزار تومان</p>
+                </div>
+            `;
+            
+            menuContainer.appendChild(menuItem);
+        });
+    </script>
+</body>
+
+</html>
+
+
+
