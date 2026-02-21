@@ -1,9 +1,4 @@
-/* 
-═══════════════════════════════════════════════════════════════════════════
-   TAILWIND-INSPIRED PERSIAN LUXURY CSS
-   فایل استایل حرفه‌ای با الهام از Tailwind CSS و طراحی فارسی
-═══════════════════════════════════════════════════════════════════════════
-*/
+
 
 :root {
     /* Color Palette */
@@ -615,3 +610,4 @@ a:focus, button:focus, .back-button:focus {
     outline: 2px solid var(--primary-gold);
     outline-offset: 2px;
 }
+
